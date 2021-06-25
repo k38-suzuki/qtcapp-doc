@@ -10,6 +10,7 @@ QtcAppマニュアル
    :maxdepth: 2
 
    install/index
+   basic/index
    paper/index
    history/index
 
