@@ -7,4 +7,5 @@
 
    start
    view
+   execute
    quit

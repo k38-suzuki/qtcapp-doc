@@ -1,0 +1,182 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>設定の反映と解除 &#8212; qtc-app-doc 0.0.0 ドキュメント</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="終了方法" href="quit.html" />
+    <link rel="prev" title="画面構成" href="view.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="quit.html" title="終了方法"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="view.html" title="画面構成"
+             accesskey="P">前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">qtc-app-doc 0.0.0 ドキュメント</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">基本概念・操作</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="id1">
+<h1>設定の反映と解除<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>ここでは、設定の反映と解除の仕方を説明します。</p>
+<div class="section" id="id2">
+<h2>設定の反映<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>QtcAppのメインウィンドウでは以下のパラメータを設定できます。</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="17%" />
+<col width="10%" />
+<col width="10%" />
+<col width="63%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">パラメータ</th>
+<th class="head">デフォルト値</th>
+<th class="head">単位</th>
+<th class="head">意味</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Interface</td>
+<td>-</td>
+<td>-</td>
+<td>設定を適用するインタフェース（送信側）を指定します。使用している計算機のLANアダプタが自動でコンボボックスに登録されています。</td>
+</tr>
+<tr class="row-odd"><td>IFB</td>
+<td>ifb0</td>
+<td>-</td>
+<td>設定を適用するインタフェース（受信側）を指定します。通常は変更する必要はありません。</td>
+</tr>
+<tr class="row-even"><td>Source IP</td>
+<td>0.0.0.0</td>
+<td>-</td>
+<td>パケットの送信元を限定する際のIPアドレスを指定します。</td>
+</tr>
+<tr class="row-odd"><td>Destination IP</td>
+<td>0.0.0.0</td>
+<td>-</td>
+<td>パケットの送信先を限定する際のIPアドレスを指定します。</td>
+</tr>
+<tr class="row-even"><td>Inbound Delay Time</td>
+<td>0</td>
+<td>ms</td>
+<td>パケットを受信する際の遅延時間を指定します。</td>
+</tr>
+<tr class="row-odd"><td>Inbound Rate Rate</td>
+<td>0</td>
+<td>kbits</td>
+<td>パケットを受信する際のレイテンシ（通信速度の上限）を指定します。</td>
+</tr>
+<tr class="row-even"><td>Inbound Loss Percent</td>
+<td>0</td>
+<td>%</td>
+<td>パケットを受信する際のパケット損失率を指定します。</td>
+</tr>
+<tr class="row-odd"><td>Outbound Delay Time</td>
+<td>0</td>
+<td>ms</td>
+<td>パケットを送信する際の遅延時間を指定します。</td>
+</tr>
+<tr class="row-even"><td>Outbound Rate Rate</td>
+<td>0</td>
+<td>kbits</td>
+<td>パケットを送信する際のレイテンシ（通信速度の上限）を指定します。</td>
+</tr>
+<tr class="row-odd"><td>Outbound Loss Percent</td>
+<td>0</td>
+<td>%</td>
+<td>パケットを送信する際のパケット損失率を指定します。</td>
+</tr>
+</tbody>
+</table>
+<p>設定を入力し、“Apply”ボタンを押すと、設定が反映されます。設定が反映されている間は、ボタンの色が以下の図のように赤色になります。</p>
+<img alt="../_images/execute_0.png" src="../_images/execute_0.png" />
+</div>
+<div class="section" id="id3">
+<h2>設定の解除<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>“Apply”ボタンをもう１度押すと、設定が解除されます。</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="view.html"
+                        title="前の章へ">画面構成</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="quit.html"
+                        title="次の章へ">終了方法</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="検索" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="quit.html" title="終了方法"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="view.html" title="画面構成"
+             >前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">qtc-app-doc 0.0.0 ドキュメント</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >基本概念・操作</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, suzuki.kenta38.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7 で生成しました。
+    </div>
+  </body>
+</html>
