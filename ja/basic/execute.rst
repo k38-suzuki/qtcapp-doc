@@ -58,6 +58,11 @@ QtcAppのメインウィンドウでは以下のパラメータを設定でき�
     - %
     - パケットを送信する際のパケット損失率を指定します。
 
+上記のパラメータやネットワークエミュレーションの詳細については、以下のページを参照してください。
+ * https://wiki.linuxfoundation.org/networking/netem
+ * https://man7.org/linux/man-pages/man8/tc-netem.8.html
+ * https://man.archlinux.org/man/tc-netem.8.en
+
 設定を入力し、“Apply”ボタンを押すと、設定が反映されます。設定が反映されている間は、ボタンの色が以下の図のように赤色になります。
 
 .. image:: images/execute_0.png

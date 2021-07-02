@@ -8,4 +8,5 @@
    start
    view
    execute
+   import
    quit
