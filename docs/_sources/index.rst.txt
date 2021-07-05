@@ -9,6 +9,7 @@ QtcAppマニュアル
 .. toctree::
    :maxdepth: 2
 
+   about/index
    install/index
    basic/index
    paper/index
