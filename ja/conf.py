@@ -46,7 +46,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'qtc-app-doc'
+project = 'qtcapp-doc'
 copyright = '2021, suzuki.kenta38'
 author = 'suzuki.kenta38'
 
@@ -114,7 +114,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'qtc-app-docdoc'
+htmlhelp_basename = 'qtcapp-docdoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -141,7 +141,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'qtc-app-doc.tex', 'qtc-app-doc Documentation',
+    (master_doc, 'qtcapp-doc.tex', 'qtcapp-doc Documentation',
      'suzuki.kenta38', 'manual'),
 ]
 
@@ -151,7 +151,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'qtc-app-doc', 'qtc-app-doc Documentation',
+    (master_doc, 'qtcapp-doc', 'qtcapp-doc Documentation',
      [author], 1)
 ]
 
@@ -162,8 +162,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'qtc-app-doc', 'qtc-app-doc Documentation',
-     author, 'qtc-app-doc', 'One line description of project.',
+    (master_doc, 'qtcapp-doc', 'qtcapp-doc Documentation',
+     author, 'qtcapp-doc', 'One line description of project.',
      'Miscellaneous'),
 ]
 

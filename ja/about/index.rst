@@ -1,5 +1,5 @@
 
-QtcApp
+Qtcapp
 ======
 
 .. toctree::
