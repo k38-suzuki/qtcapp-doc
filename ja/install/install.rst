@@ -5,15 +5,15 @@
 ソースコードの取得
 ------------------
 
-QtcAppはgitリポジトリとして管理されており、githubの以下のアドレスにて公開されています。
+Qtcappはgitリポジトリとして管理されており、githubの以下のアドレスにて公開されています。
 
-- https://github.com/k38-suzuki/qtc-app
+- https://github.com/k38-suzuki/qtcapp
 
-任意のディレクトリに移動して、以下のコマンドでQtcAppを取得します。 ::
+任意のディレクトリに移動して、以下のコマンドでQtcappを取得します。 ::
 
- git clone https://github.com/k38-suzuki/qtc-app.git
+ git clone https://github.com/k38-suzuki/qtcapp.git
 
-これによってリポジトリを格納した "qtc-app" というディレクトリが生成されます。このディレクトリ内で ::
+これによってリポジトリを格納した "qtcapp" というディレクトリが生成されます。このディレクトリ内で ::
 
  git pull
 
@@ -22,7 +22,7 @@ QtcAppはgitリポジトリとして管理されており、githubの以下の�
 依存パッケージのインストール
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Ubuntuの場合、"qtc-app/misc/script" 以下にある "install-requisites-ubuntu-x.x.sh" というスクリプトを用いることにより、以上のソフトウェアのほとんどを簡単にインストールすることができます。x.xはUbuntuのバージョンに対応します。例えば Ubuntu 18.04 であれば ::
+Ubuntuの場合、"qtcapp/misc/script" 以下にある "install-requisites-ubuntu-x.x.sh" というスクリプトを用いることにより、以上のソフトウェアのほとんどを簡単にインストールすることができます。x.xはUbuntuのバージョンに対応します。例えば Ubuntu 18.04 であれば ::
 
  misc/script/install-requisites-ubuntu-18.04.sh
 
@@ -35,25 +35,25 @@ Ubuntuの場合、"qtc-app/misc/script" 以下にある "install-requisites-ubun
  <username>    ALL=NOPASSWD: /sbin/tc
  <username>    ALL=NOPASSWD: /sbin/rmmod
 
-<username>は、使用しているユーザ名です。これは、QtcApp内で利用しているルート権限を要するコマンド(modprobe, ip等)をパスワードなしで実行するための設定です。これにより、"Apply"ボタン押下時にパスワードの入力が求められないようにしています。
+<username>は、使用しているユーザ名です。これは、Qtcapp内で利用しているルート権限を要するコマンド(modprobe, ip等)をパスワードなしで実行するための設定です。これにより、"Apply"ボタン押下時にパスワードの入力が求められないようにしています。
 
 CMake によるビルド設定
 ----------------------
 
-まず、cmakeコマンドを使ってMakefileを更新します。QtcAppのビルドディレクトリ上で ::
+まず、cmakeコマンドを使ってMakefileを更新します。Qtcappのビルドディレクトリ上で ::
 
  cmake ..
 
 を実行すると、必要なライブラリをチェックしMakefileを更新します。(cmakeコマンドのあとのピリオドに注意してください。）
 
-QtcAppのビルド
+Qtcappのビルド
 --------------
 
 CMakeの実行に成功すると、ビルドのためのMakefile一式がビルドディレクトリ内に生成されます。ビルドディレクトリで ::
 
  make
 
-を実行することで、QtcAppのビルドが行われます。
+を実行することで、Qtcappのビルドが行われます。
 
 マルチコアCPUであれば、"-j" オプションにより並列ビルドを行うことでビルド時間を短縮できます。例えば、 ::
 
@@ -64,11 +64,11 @@ CMakeの実行に成功すると、ビルドのためのMakefile一式がビル�
 インストール
 ------------
 
-QtcAppをUbuntuで使用する場合は、ビルドディレクトリ内に生成される実行ファイルをそのまま実行することが可能です。ビルドに成功すれば、ビルドディレクトリ内の"bin"というディレクトリの下に "qtc-app" という実行ファイルが生成されていますので、これを実行してください。 ::
+QtcappをUbuntuで使用する場合は、ビルドディレクトリ内に生成される実行ファイルをそのまま実行することが可能です。ビルドに成功すれば、ビルドディレクトリ内の"bin"というディレクトリの下に "qtcapp" という実行ファイルが生成されていますので、これを実行してください。 ::
 
- bin/qtc-app
+ bin/qtcapp
 
-ビルドに問題がなければ、QtcAppのメインウィンドウが起動します。
+ビルドに問題がなければ、Qtcappのメインウィンドウが起動します。
 
 このようにインストール作業なしに実行できるのは便利なので、特に問題がなければこの形態で使用してもよいかと思います。
 
@@ -88,6 +88,6 @@ Ubuntuではデフォルトのインストール先は "/usr/local" となって
 
 /usr/localの場合は実行ファイルを格納する/usr/local/binにデフォルトでパスが通っているので、カレントディレクトリがどこにあっても、単に ::
 
- qtc-app
+ qtcapp
 
-とすることでQtcAppを実行できます。
+とすることでQtcappを実行できます。

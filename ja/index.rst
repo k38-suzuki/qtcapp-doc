@@ -1,9 +1,9 @@
-.. qtc-app-doc documentation master file, created by
+.. qtcapp-doc documentation master file, created by
    sphinx-quickstart on Fri Jun 25 11:24:21 2021.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-QtcAppマニュアル
+Qtcappマニュアル
 ================
 
 .. toctree::
@@ -23,7 +23,7 @@ QtcAppマニュアル
 免責事項
 ========
 
-　QtcAppの使用に伴うトラブルやその他の損失・損害について当機構では一切の責任を負いません。予めご了承ください。
+　Qtcappの使用に伴うトラブルやその他の損失・損害について当機構では一切の責任を負いません。予めご了承ください。
 
 .. Indices and tables
 .. ==================
