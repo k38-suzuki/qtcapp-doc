@@ -1,2 +1,2 @@
-# qtc-app-doc
-Document of QtcApp
+# qtcapp-doc
+Document of Qtcapp
