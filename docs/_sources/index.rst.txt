@@ -12,6 +12,7 @@ Qtcappマニュアル
    about/index
    install/index
    basic/index
+   ros/index
    paper/index
    history/index
 

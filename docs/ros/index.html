@@ -1,0 +1,184 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ROSとの連携 &#8212; qtcapp-doc 0.0.0 ドキュメント</title>
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="関連論文" href="../paper/index.html" />
+    <link rel="prev" title="終了方法" href="../basic/quit.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../paper/index.html" title="関連論文"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="../basic/quit.html" title="終了方法"
+             accesskey="P">前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">qtcapp-doc 0.0.0 ドキュメント</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ros">
+<h1>ROSとの連携<a class="headerlink" href="#ros" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p>QtcappはROSと連携することが可能です。ここではQtcappをROSパッケージとしてビルドする方法について解説します。</p>
+<div class="section" id="catkin">
+<h2>Catkinワークスペースの作成<a class="headerlink" href="#catkin" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Choreonoid用のCatkinワークスペースを作成します。</p>
+<p>ワークスペースは通常これはホームディレクトリ上に作成します。ワークスペースの名前は通常 &quot;catkin_ws&quot; とします。この名前は変更しても結構ですが、その場合は以下の説明の &quot;catkin_ws&quot; をその名前に置き換えるようにしてください。</p>
+<p>まず空のワークスペースを作成します。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="n">catkin_ws</span>
+<span class="n">cd</span> <span class="n">catkin_ws</span>
+<span class="n">mkdir</span> <span class="n">src</span>
+<span class="n">catkin</span> <span class="n">init</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>パッケージソースの追加<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>作成したワークスペースの &quot;src&quot; ディレクトリ内に、Qtcappのソースコードリポジトリをクローンします。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">src</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">k38</span><span class="o">-</span><span class="n">suzuki</span><span class="o">/</span><span class="n">qtcapp</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>ビルド<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ワークスペース内のディレクトリで、以下のコマンドでビルドします。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">catkin</span> <span class="n">build</span> <span class="o">--</span><span class="n">cmake</span><span class="o">-</span><span class="n">args</span> <span class="o">-</span><span class="n">DBUILD_QTCAPP_ROS</span><span class="o">=</span><span class="n">ON</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>ワークスペースセットアップスクリプトの取り込み<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ビルドをすると、 ワークスペースのdevelディレクトリに &quot;setup.bash&quot; というファイルが生成されます。このスクリプトに記述されている設定は、ワークスペース内のパッケージを実行したりする際に必要となりますので、デフォルトで実行されるようにしておきます。通常はホームディレクトリの .bashrc ファイルに</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>source $HOME/catkin_ws/devel/setup.bash
+</pre></div>
+</div>
+<p>という記述を追加しておきます。</p>
+<p>すると端末起動時に自動でこのファイルが実行され、設定が読み込まれるようになります。</p>
+<p>初回ビルド時はまだこの設定が取り込まれていませんので、端末を起動し直すか、上記のコマンドをコマンドラインから直接入力して、設定を反映させるようにしてください。</p>
+</div>
+<div class="section" id="id4">
+<h2>ROSマスターの起動<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>端末を開いて以下を入力し、ROSマスターを起動します。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">roscore</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="qtcapp">
+<h2>Qtcappの起動<a class="headerlink" href="#qtcapp" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>端末を開いて以下を入力し、Qtcappを起動します。</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rosrun</span> <span class="n">qtcapp</span> <span class="n">node</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../index.html">目次</a></h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">Qtcapp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/index.html">インストール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/index.html">基本概念・操作</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ROSとの連携</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#catkin">Catkinワークスペースの作成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">パッケージソースの追加</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">ビルド</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">ワークスペースセットアップスクリプトの取り込み</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">ROSマスターの起動</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qtcapp">Qtcappの起動</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../paper/index.html">関連論文</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../history/index.html">更新履歴</a></li>
+</ul>
+
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="../basic/quit.html"
+                        title="前の章へ">終了方法</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="../paper/index.html"
+                        title="次の章へ">関連論文</a></p>
+<div id="searchbox" style="display: none" role="search">
+  <h3>クイック検索</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="検索" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+<div id="searchbox" style="display: none" role="search">
+  <h3>検索</h3>
+    <form action="http://www.google.com/search" method=get>
+      <input type="hidden" name="hl" value="ja">
+      <input type="hidden" name="sitesearch" value="http://choreonoid.org/ja/manuals/latest">
+      <input type="text" name="q" style="WIDTH: 150px; HEIGHT: 20px"/>
+      <input type="submit" name="btnG" value="検索" style="WIDTH: 50px; HEIGHT: 20px"/>
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../paper/index.html" title="関連論文"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="../basic/quit.html" title="終了方法"
+             >前へ</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">qtcapp-doc 0.0.0 ドキュメント</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2021, suzuki.kenta38.
+      このドキュメントは <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7 で生成しました。
+    </div>
+  </body>
+</html>
